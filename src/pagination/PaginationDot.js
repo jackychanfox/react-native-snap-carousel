@@ -35,9 +35,9 @@ export default class PaginationDot extends PureComponent {
         }
     }
 
-    componentWillReceiveProps (nextProps) {
-        if (nextProps.active !== this.props.active) {
-            this._animate(nextProps.active ? 1 : 0);
+    componentDidUpdate (prevProps) {
+        if (prevProps.active !== this.props.active) {
+            this._animate(this.props.active ? 1 : 0);
         }
     }
 
@@ -128,11 +128,12 @@ export default class PaginationDot extends PureComponent {
         ];
 
         const onPress = tappable ? () => {
-            carouselRef && carouselRef.snapToItem(carouselRef._getPositionIndex(index));
+            carouselRef && carouselRef._snapToItem(carouselRef._getPositionIndex(index));
         } : undefined;
 
         return (
             <TouchableOpacity
+              accessible={false}
               style={dotContainerStyle}
               activeOpacity={tappable ? activeOpacity : 1}
               onPress={onPress}
