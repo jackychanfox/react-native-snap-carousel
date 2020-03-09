@@ -60,7 +60,7 @@ export function defaultAnimatedStyles(index, animatedValue, carouselProps) {
     let customAnimates = {}
 
     if (carouselProps.customAnimates) {
-        customAnimates = carouselProps.customAnimates.map(o => customAnimates[o.property] = animatedValue.interpolate({
+        carouselProps.customAnimates.map(o => customAnimates[o.property] = animatedValue.interpolate({
             inputRange: [0, 1],
             outputRange: o.outputRange
         }))
