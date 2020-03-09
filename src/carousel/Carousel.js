@@ -295,7 +295,7 @@ export default class Carousel extends Component {
       // Native driver for scroll events
       const scrollEventConfig = {
         listener: this._onScroll,
-        useNativeDriver: true,
+        // useNativeDriver: true,
       };
       this._scrollPos = new Animated.Value(0);
       const argMapping = props.vertical
@@ -628,7 +628,7 @@ export default class Carousel extends Component {
 
         const animationCommonOptions = {
             isInteraction: false,
-            useNativeDriver: true,
+            // useNativeDriver: true,
             ...activeAnimationOptions,
             toValue: toValue
         };
